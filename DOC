@@ -38,3 +38,7 @@ Everything should be defined in a file interface.h in the directory that also co
 
 Example:
 An example of a setup using simpletest can be found in the example subdirectory
+
+Namespace issues:
+All simpletest functions and global variables are prefixed with ST_. Furthermore, any global functions and variables in simpleTestTester.c are
+defined in simpleTest.h

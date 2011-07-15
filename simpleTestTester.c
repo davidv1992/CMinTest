@@ -35,7 +35,7 @@ typedef ST_BOOL (*test)(void);
 // Pass 2: create arrays for each test group
 #define SIMPLETEST_START_SUITE(name)
 #define SIMPLETEST_END_SUITE()
-#define SIMPLETEST_START_GROUP(name) test ST_##name[] = {
+#define SIMPLETEST_START_GROUP(name) static test ST_##name[] = {
 #define SIMPLETEST_END_GROUP(name) NULL};
 #define SIMPLETEST_TEST(function) function,
 #include "testdescriptors.h"
@@ -46,7 +46,7 @@ typedef ST_BOOL (*test)(void);
 #undef SIMPLETEST_TEST
 
 // Pass 3: create arrays for each test suite
-#define SIMPLETEST_START_SUITE(name) test *ST_##name[] = {
+#define SIMPLETEST_START_SUITE(name) static test *ST_##name[] = {
 #define SIMPLETEST_END_SUITE() NULL};
 #define SIMPLETEST_START_GROUP(name) ST_##name,
 #define SIMPLETEST_END_GROUP()
@@ -64,7 +64,7 @@ typedef ST_BOOL (*test)(void);
 #define SIMPLETEST_START_GROUP(name)
 #define SIMPLETEST_END_GROUP()
 #define SIMPLETEST_TEST(function)
-test **ST_testSuites[] = {
+static test **ST_testSuites[] = {
 #include "testdescriptors.h"
 NULL};
 #undef SIMPLETEST_START_SUITE
@@ -76,7 +76,7 @@ NULL};
 // Pass 5: create array of test names
 #define SIMPLETEST_START_SUITE(name)
 #define SIMPLETEST_END_SUITE()
-#define SIMPLETEST_START_GROUP(name) char *ST_testNames_##name[] = {
+#define SIMPLETEST_START_GROUP(name) static char *ST_testNames_##name[] = {
 #define SIMPLETEST_END_GROUP() NULL};
 #define SIMPLETEST_TEST(function) #function,
 #include "testdescriptors.h"
@@ -87,7 +87,7 @@ NULL};
 #undef SIMPLETEST_TEST
 
 // Pass 6: create array for each suite containing references to test names
-#define SIMPLETEST_START_SUITE(name) char **ST_testNames_##name[] = {
+#define SIMPLETEST_START_SUITE(name) static char **ST_testNames_##name[] = {
 #define SIMPLETEST_END_SUITE() NULL};
 #define SIMPLETEST_START_GROUP(name) ST_testNames_##name,
 #define SIMPLETEST_END_GROUP()
@@ -105,7 +105,7 @@ NULL};
 #define SIMPLETEST_START_GROUP(name)
 #define SIMPLETEST_END_GROUP()
 #define SIMPLETEST_TEST(function)
-char ***ST_testNames[] = {
+static char ***ST_testNames[] = {
 #include "testdescriptors.h"
 NULL};
 #undef SIMPLETEST_START_SUITE
@@ -115,7 +115,7 @@ NULL};
 #undef SIMPLETEST_TEST
 
 // Pass 8: create array with group names
-#define SIMPLETEST_START_SUITE(name) char *ST_groupNames_##name[] = {
+#define SIMPLETEST_START_SUITE(name) static char *ST_groupNames_##name[] = {
 #define SIMPLETEST_END_SUITE() NULL};
 #define SIMPLETEST_START_GROUP(name) #name,
 #define SIMPLETEST_END_GROUP()
@@ -133,7 +133,7 @@ NULL};
 #define SIMPLETEST_START_GROUP(name)
 #define SIMPLETEST_END_GROUP()
 #define SIMPLETEST_TEST(function)
-char **ST_groupNames[] = {
+static char **ST_groupNames[] = {
 #include "testdescriptors.h"
 NULL};
 #undef SIMPLETEST_START_SUITE
@@ -148,7 +148,7 @@ NULL};
 #define SIMPLETEST_START_GROUP(name)
 #define SIMPLETEST_END_GROUP()
 #define SIMPLETEST_TEST(function)
-char *ST_suiteNames[] = {
+static char *ST_suiteNames[] = {
 #include "testdescriptors.h"
 NULL};
 #undef SIMPLETEST_START_SUITE
