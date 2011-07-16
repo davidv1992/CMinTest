@@ -1,7 +1,7 @@
-#include "simpleTest.h"
+#include "CMinTest.h"
 
 int main()
 {
-	ST_runTests();
+	CMT_runTests();
 	return 0;
 }

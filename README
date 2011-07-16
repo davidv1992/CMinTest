@@ -1,44 +1,44 @@
-Each test is a function taking no arguments and producing an ST_BOOL. Tests are listed for SimpleTest in .td files (test descriptions) which are formatted as specified in this document
+Each test is a function taking no arguments and producing an CMT_BOOL. Tests are listed for CMinTest in .td files (test descriptions) which are formatted as specified in this document
 
-SIMPLETEST_TEST(function) specifies that a function ST_BOOL function(void) exists and that it is part of the currently open test group
-SIMPLETEST_START_GROUP(name) specifies and opens a test group with the given name inside the current suite
-SIMPLETEST_END_GROUP() ends an open test group
-SIMPLETEST_START_SUITE(name) specifies and opens a test suite with the given name
-SIMPLETEST_END_GROUP() ends an open test suite
+CMINTEST_TEST(function) specifies that a function CMT_BOOL function(void) exists and that it is part of the currently open test group
+CMINTEST_START_GROUP(name) specifies and opens a test group with the given name inside the current suite
+CMINTEST_END_GROUP() ends an open test group
+CMINTEST_START_SUITE(name) specifies and opens a test suite with the given name
+CMINTEST_END_GROUP() ends an open test suite
 
 A few rules must be adhered to. A test group must only be opened inside a suite and outside any other test group. A suite must be opened outside any other testsuite. For tests to be run they must be mentioned inside a test group. Standard C comments can be used
 
 Example:
 
 example.td:
-SIMPLETEST_START_SUITE(testSuite1)
-	SIMPLETEST_START_GROUP(testGroup1)
-		SIMPLETEST_TEST(test1)
-		SIMPLETEST_TEST(test2)
-	SIMPLETEST_END_GROUP()
-	SIMPLETEST_START_GROUP(testGroup2)
-		SIMPLETEST_TEST(test3)
-	SIMPLETEST_END_GROUP()
-SIMPLETEST_END_SUITE()
+CMINTEST_START_SUITE(testSuite1)
+	CMINTEST_START_GROUP(testGroup1)
+		CMINTEST_TEST(test1)
+		CMINTEST_TEST(test2)
+	CMINTEST_END_GROUP()
+	CMINTEST_START_GROUP(testGroup2)
+		CMINTEST_TEST(test3)
+	CMINTEST_END_GROUP()
+CMINTEST_END_SUITE()
 
-SIMPLETEST_START_SUITE(testSuite2)
-	SIMPLETEST_START_GROUP(testGroup3)
+CMINTEST_START_SUITE(testSuite2)
+	CMINTEST_START_GROUP(testGroup3)
 		// Empty groups are allowed
-	SIMPLETEST_END_GROUP()
-SIMPLETEST_END_SUITE()
+	CMINTEST_END_GROUP()
+CMINTEST_END_SUITE()
 
-SIMPLETEST_START_SUITE(testSuite3)
+CMINTEST_START_SUITE(testSuite3)
 	/* As are empty suites */
-SIMPLETEST_END_SUITE()
+CMINTEST_END_SUITE()
 
 External requirements:
-For its operation simpletest requires a few definitions and functions. First of all a boolean type must be suplied under the name ST_BOOL. Variables declared with this type should accept as values ST_TRUE and ST_FALSE. ST_TRUE as a conditional expression should evaluate to true and ST_FALSE should evaluate to false when used in a conditional expression.
-Simpletest requires also a function print which should accept as an argument a pointer to a string and is not required to return anything. Also required is a function print_num which should accept a signed integer as argument and is not required to return anything. These functions are used by simpletest to log the results of the tests.
-Everything should be defined in a file interface.h in the directory that also contains the makefile. Everything defined as a function or type may also be implemented as a macro, simpletesters code will still work in those instances.
+For its operation CMinTest requires a few definitions and functions. First of all a boolean type must be suplied under the name CMT_BOOL. Variables declared with this type should accept as values CMT_TRUE and CMT_FALSE. CMT_TRUE as a conditional expression should evaluate to true and CMT_FALSE should evaluate to false when used in a conditional expression.
+CMinTest requires also a function print which should accept as an argument a pointer to a string and is not required to return anything. Also required is a function print_num which should accept a signed integer as argument and is not required to return anything. These functions are used by CMinTest to log the results of the tests.
+Everything should be defined in a file interface.h in the directory that also contains the makefile. Everything defined as a function or type may also be implemented as a macro, the code will still work in those instances.
 
 Example:
-An example of a setup using simpletest can be found in the example subdirectory
+An example of a setup using CMinTest can be found in the example subdirectory
 
 Namespace issues:
-All simpletest functions and global variables are prefixed with ST_. Furthermore, any global functions and variables in simpleTestTester.c are
-defined in simpleTest.h
+All CMinTest functions and global variables are prefixed with CMT_. Furthermore, any global functions and variables in CMinTestTester.c are
+defined in CMinTest.h

@@ -2,6 +2,6 @@ TESTFOLDER := test/
 TESTDESCRIPTORS := $(shell find $(TESTFOLDER) -name "*.td")
 
 testdescriptors.h: Makefile $(TESTDESCRIPTORS)
-	find $(TESTFOLDER) -name "*.td" | awk '{ print "#include\"" $$0 "\"" }' > testedescriptors.h
+	find $(TESTFOLDER) -name "*.td" | awk '{ print "#include\"" $$0 "\"" }' > testdescriptors.h
 
-simpleTestTester.o: Makefile simpleTestTester.c testdescriptors.h interface.h
+CMinTestTester.o: Makefile CMinTestTester.c testdescriptors.h interface.h

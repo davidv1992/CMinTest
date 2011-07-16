@@ -1,7 +1,7 @@
 // ST_BOOL type
-typedef int ST_BOOL;
-#define ST_TRUE 1
-#define ST_FALSE 0
+typedef int CMT_BOOL;
+#define CMT_TRUE 1
+#define CMT_FALSE 0
 
 // print and print_num
 #include <stdio.h>

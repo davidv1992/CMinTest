@@ -1,18 +1,18 @@
 #include "interface.h"
 
-ST_BOOL test1()
+CMT_BOOL test1()
 {
 	// A simple suceeding test
-	return ST_TRUE;
+	return CMT_TRUE;
 }
 
-ST_BOOL test2()
+CMT_BOOL test2()
 {
 	// A simple failing test
-	return ST_FALSE;
+	return CMT_FALSE;
 }
 
-ST_BOOL test3()
+CMT_BOOL test3()
 {
 	// A slightly more interesting test
 	return 'a' == 97;
