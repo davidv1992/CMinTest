@@ -1,3 +1,5 @@
+CMinTest is a testing framework written to have minimal dependencies on other pieces of software, to make it usefull in situations where there is only a very limited runtime, such as on embedded systems or in early kernel development.
+
 Each test is a function taking no arguments and producing an CMT_BOOL. Tests are listed for CMinTest in .td files (test descriptions) which are formatted as specified in this document
 
 CMINTEST_TEST(function) specifies that a function CMT_BOOL function(void) exists and that it is part of the currently open test group
