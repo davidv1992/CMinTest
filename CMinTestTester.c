@@ -210,7 +210,7 @@ void CMT_runTests(void)
 		print("\n-----------------\n");
 	}
 	
-	print("-----------------\nOveral:\nSucceeded: ")
+	print("-----------------\nOveral:\nSucceeded: ");
 	print_num(totalSucceed);
 	print("\nFailed:    ");
 	print_num(totalFail);
