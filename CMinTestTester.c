@@ -169,7 +169,7 @@ NULL};
 #undef CMINTEST_END_GROUP
 #undef CMINTEST_TEST
 
-void CMT_runTests(void)
+CMT_BOOL CMT_runTests(void)
 {
 	int totalSucceed=0, totalFail = 0;
 	int suiteSucceed, suiteFail;
@@ -215,4 +215,6 @@ void CMT_runTests(void)
 	print("\nFailed:    ");
 	print_num(totalFail);
 	print("\n-----------------\nTests Finished.\n");
+	
+	return totalFail == 0;
 }
